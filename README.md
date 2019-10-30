@@ -9,8 +9,10 @@ it contains the different object model to use in the application:
  - ValueRisk : it contains two attribute  : period and profitAndLoss number
 
 # controller :
-HistoricalVarService: the service HistoricalVarService allows to calculate the indicator of profit or loss
+RegulatorService: the service RegulatorService allows to calculate the indicator of profit or loss
 
+# exception :
+HistoricalVarException: it's used to return error messages
 
 # Unit test :
- HistoricalVarServiceTest : it contains some unit tests of the service HistoricalVarService.
+RegulatorTest : it contains some unit tests of the service RegulatorService.
