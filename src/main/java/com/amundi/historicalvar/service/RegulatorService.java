@@ -1,10 +1,8 @@
 package com.amundi.historicalvar.service;
 
 import java.io.BufferedReader;
-import org.apache.commons.collections4.*;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
@@ -15,6 +13,8 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import org.apache.commons.collections4.CollectionUtils;
+
 import com.amundi.historicalvar.exception.HistoricalVarException;
 import com.amundi.historicalvar.model.ValueRisk;
 import com.amundi.historicalvar.util.DateUtils;
@@ -22,6 +22,16 @@ import com.amundi.historicalvar.util.ParameterChecker;
 
 public class RegulatorService {
 
+	/** 
+	 * calculate the potential profit or loss with applying date , historical depth and percentile
+	 * 
+	 * @param inputDate  the currentDate
+	 * @param historicalDepth  the historical depth
+	 * @param percentile     the percentile 
+	 * @param filePath  the historic file path
+	 * @return   the potential profit or loss with percentile
+	 * @throws HistoricalVarException
+	 */
 	public String calculateVarPercentile(String inputDate, Integer historicalDepth, Integer percentile, String filePath)
 			throws HistoricalVarException {
 		LocalDate currentDate = ParameterChecker.parseDate(inputDate);
